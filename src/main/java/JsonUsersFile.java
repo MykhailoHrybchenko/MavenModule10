@@ -3,6 +3,7 @@ import com.google.gson.GsonBuilder;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -16,12 +17,12 @@ public class JsonUsersFile {
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(RELATIVE_PATH))) {
             List<String> listString = new ArrayList<>();
             String line = bufferedReader.readLine();
-            while (line != null) {
+            while (line != null && !line.isEmpty()) {
                 listString.add(line);
                 line = bufferedReader.readLine();
             }
-            String[] array = listString.toArray(new String[0]);
-            for (String userInfo : array) {
+
+            for (String userInfo : listString.subList(1,listString.size())) {
                 JsonUser jsonUser = new JsonUser();
                 String[] infoArr = userInfo.split("\\s");
                 for (int i = 0; i < infoArr.length; i++) {

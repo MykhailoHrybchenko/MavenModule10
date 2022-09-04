@@ -19,8 +19,8 @@ public class PhoneNumberValidator {
             ArrayList<String> arrayList = new ArrayList<>();
             StringBuilder stringBuilder = new StringBuilder();
             for (int i = 0; i < buffer.length; i++) {
-                if ((char) buffer[i] == '\n') continue;
-                if ((char) buffer[i] == '\r') {
+                if ((char) buffer[i] == '\r') continue;
+                if ((char) buffer[i] == '\n') {
                     arrayList.add(stringBuilder.toString());
                     stringBuilder = new StringBuilder();
                 } else {
